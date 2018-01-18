@@ -1,0 +1,31 @@
+{
+  "name": "ykaej/simple-repository",
+  "description": "Laravel Simple Repository",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "YKAEJ",
+      "email": "499627283@qq.com"
+    }
+  ],
+  "minimum-stability": "dev",
+  "require": {
+    "php": ">=7.0.0",
+    "illuminate/support": "^5.2",
+    "illuminate/database": "^5.2",
+    "illuminate/filesystem": "^5.2",
+    "illuminate/console": "^5.2"
+  },
+  "autoload": {
+    "psr-4": {
+      "Ykaej\\": "src/Ykaej/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Ykaej\\Repository\\Providers\\RepositoryProvider"
+      ]
+    }
+  }
+}

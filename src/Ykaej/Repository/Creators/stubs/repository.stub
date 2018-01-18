@@ -1,0 +1,15 @@
+<?php
+
+namespace $repository_namespace$;
+
+use Ykaej\Repository\Eloquent\BaseRepository;
+use $model_namespace$\$model_class$;
+
+class $repository_class$ extends BaseRepository
+{
+    public function model()
+    {
+        return $model_class$::class;
+    }
+
+}

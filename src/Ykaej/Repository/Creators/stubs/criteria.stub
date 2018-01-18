@@ -1,0 +1,15 @@
+<?php
+
+namespace $criteria_namespace$;
+
+use Ykaej\Repository\Contracts\RepositoryInterface;
+use Ykaej\Repository\Criteria\Criteria;
+
+class $criteria_class$ extends Criteria
+{
+
+    public function apply($model, RepositoryInterface $repository)
+    {
+        return $model;
+    }
+}
