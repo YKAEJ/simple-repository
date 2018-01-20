@@ -2,12 +2,21 @@
 return [
     /*
     |--------------------------------------------------------------------------
-    | Repository namespace
+    | Repository Pagination Limit Default
     |--------------------------------------------------------------------------
     |
-    | The namespace for the repository classes.
-    |
     */
+    'pagination' => [
+        'limit' => 15
+    ],
+    /*
+       |--------------------------------------------------------------------------
+       | Repository namespace
+       |--------------------------------------------------------------------------
+       |
+       | The namespace for the repository classes.
+       |
+       */
     'repository_namespace' => 'App\Repositories\Eloquent',
     /*
     |--------------------------------------------------------------------------
