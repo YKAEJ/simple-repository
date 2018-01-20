@@ -8,6 +8,15 @@
 ```
 composer request ykaej/simple-repository
 ```
+
+如果你是 laravel5.5 以上，你将不需要在 `app.php` 当中加载以下配置:
+```
+'providers' => [
+    ...
+    Ykaej\Repository\Providers\RepositoryProvider::class,
+],
+```
+
 然后运行这个命令来发布资产和配置
 ```
 php artisan vendor:publish --provider "Ykaej\Repository\Providers\RepositoryProvider"
