@@ -6,7 +6,7 @@
 
 ## 安装
 ```
-composer request ykaej/simple-repository
+composer require ykaej/simple-repository
 ```
 
 如果你是 laravel5.5 以上，你将不需要在 `app.php` 当中加载以下配置:
