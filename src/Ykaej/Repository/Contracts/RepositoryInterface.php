@@ -92,10 +92,22 @@ interface RepositoryInterface
     public function delete($id);
 
     /**
+     * @return mixed
+     */
+    public function forceDelete();
+
+    /**
      * @param array $where
      * @return mixed
      */
     public function deleteWhere(array $where);
+
+    /**
+     * @param $field
+     * @param array $values
+     * @return mixed
+     */
+    public function deleteWhereIn($field, array $values);
 
     /**
      * @param $relation
@@ -137,4 +149,11 @@ interface RepositoryInterface
      * @return mixed
      */
     public function where($field, $condition, $value = null, $boolean = 'and');
+
+    /**
+     * @param $field
+     * @param array $values
+     * @return mixed
+     */
+    public function whereIn($field, array $values);
 }

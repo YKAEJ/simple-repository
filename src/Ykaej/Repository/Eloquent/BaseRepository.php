@@ -284,6 +284,19 @@ abstract class BaseRepository implements RepositoryInterface, CriteriaInterface
     }
 
     /**
+     * @return bool|null
+     */
+    public function forceDelete()
+    {
+        $this->applyCriteria();
+
+        $result = $this->model->forceDelete();
+
+        $this->resetModel();
+        return $result;
+    }
+
+    /**
      * @param array $where
      * @return bool|null
      */
@@ -297,6 +310,22 @@ abstract class BaseRepository implements RepositoryInterface, CriteriaInterface
         $this->resetModel();
         return $deleted;
     }
+
+    /**
+     * @param $field
+     * @param array $values
+     * @return mixed
+     */
+    public function deleteWhereIn($field, array $values)
+    {
+        $this->applyCriteria();
+
+        $deleted = $this->model->whereIn($field, $values)->delete();
+
+        $this->resetModel();
+        return $deleted;
+    }
+
 
     /**
      * @param $relation
@@ -365,6 +394,18 @@ abstract class BaseRepository implements RepositoryInterface, CriteriaInterface
     public function where($field, $condition, $value = null, $boolean = 'and')
     {
         $this->model = $this->model->where($field, $condition, $value, $boolean);
+
+        return $this;
+    }
+
+    /**
+     * @param $field
+     * @param array $values
+     * @return $this
+     */
+    public function whereIn($field, array $values)
+    {
+        $this->model = $this->model->whereIn($field, $values);
 
         return $this;
     }
@@ -467,4 +508,5 @@ abstract class BaseRepository implements RepositoryInterface, CriteriaInterface
             }
         }
     }
+
 }

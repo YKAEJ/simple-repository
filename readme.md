@@ -102,6 +102,8 @@ class PostController extends Controller
     
     public function delete($id);    //删除
     
+    public function forceDelete();    //永久删除
+    
     public function deleteWhere(array $where);  //按条件删除
     
     public function has($relation); //数据关联
@@ -115,6 +117,8 @@ class PostController extends Controller
     public function orderBy($column, $direction = 'asc');
     
     public function where($field, $condition, $value = null, $boolean = 'and');
+    
+    public function whereIn($field, array $values);
 ```
 
 ### 简单例子
@@ -154,6 +158,11 @@ $this->post->findWhere([
     'author' => $author_id,
     ['year','>',$year]
 ]);
+```
+
+永久删除:
+```php
+$this->post->whereIn('id',[1,2,3])->forceDelete();
 ```
 
 ## Criteria
