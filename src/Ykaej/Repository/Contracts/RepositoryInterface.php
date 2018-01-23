@@ -110,6 +110,20 @@ interface RepositoryInterface
     public function deleteWhereIn($field, array $values);
 
     /**
+     * @param string $name
+     * @param int $amount
+     * @return mixed
+     */
+    public function increment(string $name, int $amount = 1);
+
+    /**
+     * @param string $name
+     * @param int $amount
+     * @return mixed
+     */
+    public function decrement(string $name, int $amount = 1);
+
+    /**
      * @param $relation
      * @return mixed
      */

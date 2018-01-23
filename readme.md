@@ -17,7 +17,7 @@ composer require ykaej/simple-repository
 ],
 ```
 
-然后运行这个命令来发布资产和配置
+然后运行这个命令来发布配置
 ```
 php artisan vendor:publish --provider "Ykaej\Repository\Providers\RepositoryProvider"
 ```
@@ -28,7 +28,7 @@ php artisan vendor:publish --provider "Ykaej\Repository\Providers\RepositoryProv
 ```
 php artisan make:repository Post --model=Post
 ```
-其中，--model 是可选的，用来指定 repository 中 model 的名称 ，默认情况下，会根据 repository 的名称自动生成 model 名，生成的文件如下：
+其中，`--model` 是可选的，用来指定 repository 中 model 的名称 ，默认情况下，会根据 repository 的名称自动生成 model 名，生成的文件如下：
 
 ```php
 <?php
@@ -106,6 +106,12 @@ class PostController extends Controller
     
     public function deleteWhere(array $where);  //按条件删除
     
+    public function deleteWhereIn($field, array $values);
+    
+    public function increment(string $name, int $amount = 1);
+    
+    public function decrement(string $name, int $amount = 1);
+    
     public function has($relation); //数据关联
     
     public function with($relations);   //数据关联
@@ -163,6 +169,11 @@ $this->post->findWhere([
 永久删除:
 ```php
 $this->post->whereIn('id',[1,2,3])->forceDelete();
+```
+
+增加某字段数量
+```php
+$this->post->whereIn('id',[5,6])->increment('count',2);
 ```
 
 ## Criteria

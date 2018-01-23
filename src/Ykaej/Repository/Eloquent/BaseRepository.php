@@ -326,6 +326,35 @@ abstract class BaseRepository implements RepositoryInterface, CriteriaInterface
         return $deleted;
     }
 
+    /**
+     * @param string $name
+     * @param int $amount
+     * @return int
+     */
+    public function increment(string $name, int $amount = 1)
+    {
+        $this->applyCriteria();
+
+        $result = $this->model->increment($name, $amount);
+
+        $this->resetModel();
+        return $result;
+    }
+
+    /**
+     * @param string $name
+     * @param int $amount
+     * @return int
+     */
+    public function decrement(string $name, int $amount = 1)
+    {
+        $this->applyCriteria();
+
+        $result = $this->model->decrement($name, $amount);
+
+        $this->resetModel();
+        return $result;
+    }
 
     /**
      * @param $relation
