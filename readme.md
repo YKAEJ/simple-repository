@@ -135,7 +135,7 @@ $this->post->create(Input::all());
 
 修改记录:
 ```php
-$this->post->create(Input::all(),$id);
+$this->post->update(Input::all(),$id);
 ```
 
 批量修改,默认以id为条件更新，如果没有ID则以第一个字段为条件:

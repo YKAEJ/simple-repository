@@ -125,6 +125,20 @@ abstract class BaseRepository implements RepositoryInterface, CriteriaInterface
     }
 
     /**
+     * @param array $columns
+     * @return mixed
+     */
+    public function first($columns = ['*'])
+    {
+        $this->applyCriteria();
+
+        $model = $this->model->first($columns);
+
+        $this->resetModel();
+        return $model;
+    }
+
+    /**
      * @param $id
      * @param array $columns
      * @return mixed
