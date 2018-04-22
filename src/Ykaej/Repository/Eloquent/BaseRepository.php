@@ -228,6 +228,15 @@ abstract class BaseRepository implements RepositoryInterface, CriteriaInterface
 
     /**
      * @param array $attributes
+     * @return mixed
+     */
+    public function insert(array $attributes)
+    {
+        return $this->model->insert($attributes);
+    }
+
+    /**
+     * @param array $attributes
      * @param $id
      * @return mixed
      */
